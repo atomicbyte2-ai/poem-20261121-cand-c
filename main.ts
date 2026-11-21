@@ -22,5 +22,10 @@ So was his silence.
 I asked to come in.
 He asked me to stay.`;
 
+const poemCodePoints = [...poem].length;
+if (poemCodePoints === 0 || poemCodePoints > 280) {
+  throw new Error(`entry.txt must be 1-280 Unicode code points, got ${poemCodePoints}`);
+}
+
 mkdirSync(outputDirectory, { recursive: true });
 writeFileSync(join(outputDirectory, 'entry.txt'), poem, 'utf8');
